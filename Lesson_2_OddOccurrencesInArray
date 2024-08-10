@@ -1,0 +1,19 @@
+1. https://app.codility.com/demo/results/trainingWQDPPU-S3Y/
+def solution(A):
+    # Implement your solution here
+    num = 0
+    for i in A:
+        B = A.copy()
+        B.remove(i)
+        if i in B:
+            continue
+        else:
+            return i
+    pass
+
+1. https://app.codility.com/demo/results/trainingK8XBXT-SCX/
+def solution2(A):
+    result = 0
+    for number in A:
+        result ^= number
+    return result
