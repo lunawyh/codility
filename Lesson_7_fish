@@ -1,1 +1,25 @@
 https://app.codility.com/demo/results/trainingJWHTZ6-3SY/
+
+
+Another solution:
+https://app.codility.com/demo/results/trainingWAVGSU-YSU/
+
+for the while - else, the else is dependent on wheater the while loop finishs normally (without a break).
+If the while loop runs fully, then else will run. If a break was activated in while, else will not run
+
+def solution(A, B):
+    stack = []  # Stack to store surviving fish
+    for i in range(len(A)):
+        # Process the current fish
+        while stack and B[i] == 0 and stack[-1][1] == 1:
+            # Fight between the upstream fish and downstream fish in the stack
+            if A[i] > stack[-1][0]:
+                stack.pop()  # Upstream fish wins
+            else:
+                break  # Downstream fish wins, stop the fight
+        
+        else:
+            # Add the current fish to the stack if no fight or it survives
+            stack.append([A[i], B[i]])
+    
+    return len(stack)
